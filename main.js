@@ -3,8 +3,7 @@ const students = [
   {
     id: 1,
     name: "Dylan",
-    color: "Green",
-    house: "Slythern",
+    house: "Slytherin",
    
   },
   {
@@ -41,7 +40,7 @@ const cardsOnDom = (array) => {
      <h5 class"color-title">${student.house}</h5>
       
      
-      <button class="btn btn-danger" id="delete--${student.id}">expelle</button>
+      <button class="btn btn-danger" id="expelle--${student.id}">expelle</button>
     </div>
   </div>`
   
@@ -75,7 +74,7 @@ gryffindorButton.addEventListener("click", () => {
 });
 
 slytherinButton.addEventListener("click", () => {
-  const Slytherin = filter(students, "slytherin")
+  const slytherin = filter(students, "slytherin")
   cardsOnDom(slytherin);
 });
 
@@ -88,6 +87,17 @@ ravenclawButton.addEventListener("click", () => {
   const ravenclaw = filter(students, "ravenclaw")
   cardsOnDom(ravenclaw);
 });
+
+
+
+function myFunction() {
+  let x = document.getElementById("mainPage");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 
 const form = document.querySelector("form")
 
@@ -111,11 +121,12 @@ const createStudent = (e) => {
   
   if (e.target.id.includes("expelle")) {
     const [, id] = e.target.id.split("--");
-    console.log("id, id");
-    const index = students.findIndex((student) => student.id === Number(id));
-    console.log("index", index);
-    students.splice(index, 1)
-    cardsOnDom(students);
+    console.log("id", id);
+      const index = students.findIndex((student) => student.id === Number(id));
+      console.log("index", index);
+      const taco = students.splice(index, 1)
+      console.log("taco", taco);
+      cardsOnDom(students);
   }
   })
 
