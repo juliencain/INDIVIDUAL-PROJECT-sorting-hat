@@ -21,7 +21,7 @@
     <h2>EXTREME</h2>
     <img src="https://m.media-amazon.com/images/I/91wibGKLwfL._AC_UF894,1000_QL80_DpWeblab_.jpg" alt="https://m.media-amazon.com/images/I/91wibGKLwfL._AC_UF894,1000_QL80_DpWeblab_.jpg">
       
-      <button onclick="myFunction()">Get Sorted!</button>
+      <button class="button" id ="sortButton">Get Sorted!</button>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
 
 
   
-    <div id="mainPage" class="mainPage">
+    <div id="mainPage" class="mainPage" hidden>
       
     <div class="card">
    
@@ -41,7 +41,7 @@
 
   <form> 
     <div class="form">
-      <input type="text" class="form-control" id="studentName" placeholder="student name">
+      <input required type="text" class="form-control" id="studentName" placeholder="student name">
       <label for="floatingInput">Student Name</label>
     </div>
    
@@ -49,13 +49,22 @@
   </form>
   
   <div id="buttons">
+    
     <button class="btn btn-primary" id="gryffindor">Gryffindor</button>
     <button class="btn btn-primary" id="slytherin">Slytherin</button>
     <button class="btn btn-primary" id ="hufflepuff">Hufflepuff</button>
     <button class="btn btn-primary" id="ravenclaw">Ravenclaw</button>
+    <button class="btn btn-primary" id="allStudents">Show All</button>
+    <button class="btn btn-primary" id="voldorks">Voldorks</button>
   </div>
   
+  </div>
+</div>
+
   <div id="app"></div>
+
+
+ 
 
   
 

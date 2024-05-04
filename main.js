@@ -26,6 +26,19 @@ const students = [
   }
 ];
 
+const voldorks = [
+  {
+    id: 1,
+    name: "Donny",
+    house: "hufflepuff",
+  },
+  {
+    id: 2,
+    name: "Bonnie",
+    house: "slytherin",
+  }
+]
+
 const targetingApp = document.querySelector("#app");
 
 const cardsOnDom = (array) => {
@@ -42,10 +55,19 @@ const cardsOnDom = (array) => {
      
       <button class="btn btn-danger" id="expelle--${student.id}">expelle</button>
     </div>
+
+  
   </div>`
+  
+
+
+      
+     
   
   targetingApp.innerHTML= domString
   }}
+  
+  
   
   const filter = (array, house) => {
     console.log("array in filter", array);
@@ -58,12 +80,17 @@ const cardsOnDom = (array) => {
     }
     
     return studentArray;
+    
   }
+  
+  
   
 const gryffindorButton = document.querySelector("#gryffindor");
 const slytherinButton = document.querySelector("#slytherin");
 const hufflepuffButton = document.querySelector("#hufflepuff");
 const ravenclawButton = document.querySelector("#ravenclaw")
+const showAllButton = document.querySelector("#allStudents")
+const voldorksButton = document.querySelector("#expelledStudents")
 
 
 
@@ -88,16 +115,14 @@ ravenclawButton.addEventListener("click", () => {
   cardsOnDom(ravenclaw);
 });
 
+showAllButton.addEventListener("click", () => {
+  cardsOnDom(students);
+});
 
 
-function myFunction() {
-  let x = document.getElementById("mainPage");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+
+
+
 
 const form = document.querySelector("form")
 
@@ -107,14 +132,20 @@ const createStudent = (e) => {
   const newStuObj = {
     id: students.length + 1,
     name: document.querySelector("#studentName").value,
-    
+    house: randomHouse() 
   };
    students.push(newStuObj);
    cardsOnDom(students)
+   
+  
   };
 
- form.addEventListener("click", createStudent);
+  
+ form.addEventListener("submit", createStudent);
 
+
+
+ 
  const app = document.querySelector("#app");
  app.addEventListener("click", (e) => {
   
@@ -130,8 +161,44 @@ const createStudent = (e) => {
   }
   })
 
+  document.getElementById("sortButton").addEventListener(
+    "click",
+    () => {
+      document.getElementById("welcomeCard").hidden = true;
+      document.getElementById("mainPage").hidden = false;
+    },
+    false,
+  );
+  
+
   const startApp = () => {
     cardsOnDom(students);
   };
   
   startApp(cardsOnDom(students));
+
+
+  const randomHouse = () => {
+    let randomNumber = Math.floor((Math.random() * 4))
+    let house = ""
+  
+    switch (randomNumber) {
+      case 0:
+        house = "Gryffindor";
+        break
+      case 1:
+        house = "Hufflepuff";
+        break
+      case 2:
+        house = "Ravenclaw";
+        break
+      case 3:
+        house = "Slytherin";
+        break
+    }
+    return house
+  }
+
+
+
+  
