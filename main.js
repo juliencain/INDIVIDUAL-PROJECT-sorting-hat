@@ -23,21 +23,20 @@ const students = [
     name: "Tostito PR",
     house: "Ravenclaw"
 
+  },
+  {
+    id: 5,
+    name: "Donny",
+    house: "Exiled",
+  },
+  {
+    id: 6,
+    name: "Bonnie",
+    house: "Exiled",
   }
 ];
 
-const voldorks = [
-  {
-    id: 1,
-    name: "Donny",
-    house: "hufflepuff",
-  },
-  {
-    id: 2,
-    name: "Bonnie",
-    house: "slytherin",
-  }
-]
+
 
 const targetingApp = document.querySelector("#app");
 
@@ -90,7 +89,7 @@ const slytherinButton = document.querySelector("#slytherin");
 const hufflepuffButton = document.querySelector("#hufflepuff");
 const ravenclawButton = document.querySelector("#ravenclaw")
 const showAllButton = document.querySelector("#allStudents")
-const voldorksButton = document.querySelector("#expelledStudents")
+const voldorksButton = document.querySelector("#voldorks")
 
 
 
@@ -117,6 +116,10 @@ ravenclawButton.addEventListener("click", () => {
 
 showAllButton.addEventListener("click", () => {
   cardsOnDom(students);
+});
+voldorksButton.addEventListener("click", () => {
+  const exiled = filter(students, "exiled")
+  cardsOnDom(exiled);
 });
 
 
@@ -147,6 +150,8 @@ const createStudent = (e) => {
 
  
  const app = document.querySelector("#app");
+
+
  app.addEventListener("click", (e) => {
   
   
@@ -199,6 +204,7 @@ const createStudent = (e) => {
     return house
   }
 
+ 
 
 
   
