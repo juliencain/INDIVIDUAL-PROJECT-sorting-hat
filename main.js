@@ -27,12 +27,12 @@ const students = [
   {
     id: 5,
     name: "Donny",
-    house: "Exiled",
+    house: "Voldork",
   },
   {
     id: 6,
     name: "Bonnie",
-    house: "Exiled",
+    house: "Voldork",
   }
 ];
 
@@ -118,8 +118,8 @@ showAllButton.addEventListener("click", () => {
   cardsOnDom(students);
 });
 voldorksButton.addEventListener("click", () => {
-  const exiled = filter(students, "exiled")
-  cardsOnDom(exiled);
+  const voldork = filter(students, "voldork")
+  cardsOnDom(voldork);
 });
 
 
@@ -160,8 +160,10 @@ const createStudent = (e) => {
     console.log("id", id);
       const index = students.findIndex((student) => student.id === Number(id));
       console.log("index", index);
-      const taco = students.splice(index, 1)
-      console.log("taco", taco);
+      students[index].house = "Voldork";
+      console.log(index);
+      console.log(students[index].house);
+     
       cardsOnDom(students);
   }
   })
